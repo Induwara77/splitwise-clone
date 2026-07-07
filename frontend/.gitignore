@@ -19,3 +19,8 @@ dist-ssr/
 .vscode/
 .idea/
 .DS_Store
+
+node_modules
+.env
+backend/node_modules
+frontend/node_modules
