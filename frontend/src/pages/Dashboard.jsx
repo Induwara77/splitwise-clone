@@ -20,16 +20,19 @@ function Dashboard() {
   }, []);
 
   const fetchExpenses = async () => {
-    const response = await axios.get("http://localhost:3000/api/expenses", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await axios.get(
+      "https://splitwise-clone-production-b7e6.up.railway.app/api/expenses",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
     setExpenses(response.data);
   };
 
   const addExpense = async () => {
     const splitAmong = users.map((user) => user._id);
     await axios.post(
-      "http://localhost:3000/api/expenses",
+      "https://splitwise-clone-production-b7e6.up.railway.app/api/expenses",
       { description, amount, splitAmong },
       { headers: { Authorization: `Bearer ${token}` } },
     );
@@ -39,16 +42,22 @@ function Dashboard() {
   };
 
   const deleteExpense = async (id) => {
-    await axios.delete(`http://localhost:3000/api/expenses/${id}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    await axios.delete(
+      `https://splitwise-clone-production-b7e6.up.railway.app/api/expenses/${id}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
     fetchExpenses();
   };
 
   const fetchUsers = async () => {
-    const response = await axios.get("http://localhost:3000/api/auth/users", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await axios.get(
+      "https://splitwise-clone-production-b7e6.up.railway.app/api/auth/users",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
     setUsers(response.data);
   };
 
